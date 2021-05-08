@@ -1,16 +1,137 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@import url("https://use.typekit.net/nev1unp.css");
+
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+        @apply antialiased font-body;
+    }
+    h1, h2, h3, h4, h5 {
+        @apply font-bold tracking-tight mb-2;
+    }
+    h1 {
+      @apply text-6xl;
+    }
+    h2 {
+      @apply text-5xl;
+    }
+    h3 {
+        @apply text-4xl;
+    }
+    h4 {
+        @apply text-3xl;
+    }
+    h5 {
+        @apply text-2xl;
+    }
+    h6 {
+        @apply text-xl;
+    }
+    p {
+        @apply text-base text-gray-900 mb-4 leading-relaxed;
+    }
+    input, textarea {
+        @apply w-full bg-white border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none;
+    }
+    label {
+      @apply font-bold;
+    }
+
+    /* Emphasis Header Text */
+    .em {
+      @apply
+      text-yellow not-italic
+    }
+
+    /* List Styles */
+    .list {
+      @apply
+      list-disc ml-6 leading-loose
+    }
+
+    /* Horizontal Navigation */
+    .h-nav {
+      @apply
+      mx-4
+      py-1
+      leading-8
+      text-gray-600
+      border-transparent
+      border-b-2
+      transition-colors duration-500
+      hover:text-white
+      hover:border-yellow
+
+    }
+
+    /* Vertical Navigation */
+    .v-nav {
+      @apply
+      mb-0
+      leading-8
+      text-gray-600
+      border-transparent
+      border-b-2
+      transition-colors duration-500
+      hover:text-white
+      hover:border-yellow
+      flex-shrink
+      inline-flex
+    }
+
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@layer components {
+    .btn-yellow {
+      @apply
+      py-4 px-8
+      transition duration-500 ease-in-out 
+      border-2 border-yellow
+      bg-yellow
+      text-black
+      font-semibold rounded-full shadow-md
+      transform
+      
+      hover:bg-white
+      hover:border-white
+      focus:outline-none
+      focus:ring-2
+      focus:ring-yellow
+      focus:ring-opacity-75;
+    }
+  }
 
-* {
-  box-sizing: border-box;
-}
+  @layer components {
+    .btn-yellow-2 {
+      @apply
+      py-4 px-8
+      transition duration-500 ease-in-out 
+      border-2 border-yellow
+      bg-yellow
+      text-black
+      font-semibold rounded-full
+      transform
+      hover:bg-black
+      hover:border-black
+      hover:text-white
+      focus:outline-none
+      focus:ring-2
+      focus:ring-yellow
+      focus:ring-opacity-75;
+    }
+  }
+
+  @layer components {
+    .btn-gray-outline {
+      @apply
+      py-4 px-8
+      transition duration-500 ease-in-out
+      border-2 border-gray-400 text-gray-400
+      font-semibold rounded-full shadow-md 
+      transform 
+      opacity-100 hover:bg-gray-400 hover:text-white focus:bg-gray-400 focus:text-white focus:ring-2 focus:ring-gray-900 focus:ring-opacity-75;
+    }
+  }

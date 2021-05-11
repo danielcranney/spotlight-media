@@ -24,6 +24,10 @@ module.exports = {
         'display': ['sofia-pro', 'sans-serif'],
         'body': ['sofia-pro', 'sans-serif']
       },
+      width: {
+        '32pc': '32%',
+        '48pc': '48%'
+      },
       transitionProperty: {
         'width': 'width'
       },

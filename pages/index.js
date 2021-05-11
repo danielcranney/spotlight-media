@@ -3,8 +3,6 @@ import Image from 'next/image'
 
 const Home = () => {
 
-  // let location = useLocation();
-  // console.log(location.pathname);
 
   return (
     <div className="App relative bg-white flex flex-col items-center">

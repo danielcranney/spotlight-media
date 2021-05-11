@@ -26,7 +26,7 @@ const OurClients = () => {
                 </h6>
 
                 <h1 className="w-4/5 leading-tight text-white text-left z-20">
-                Who we work with
+                Wh<em className="em">o</em> we w<em className="em">o</em>rk with
                 </h1>
             </div>
 

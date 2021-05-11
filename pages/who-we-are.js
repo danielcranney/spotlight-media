@@ -26,7 +26,7 @@ const WhoWeAre = () => {
                 </h6>
 
                 <h1 className="w-4/5 leading-tight text-white text-left z-20">
-                We’re a team of <em className="em">videographers</em>, <em className="em">designers</em> and <em className="em">web developers</em>.
+                We’re a team <em className="em">o</em>f vide<em className="em">o</em>graphers, designers and web devel<em className="em">o</em>pers.
                 </h1>
             </div>
 

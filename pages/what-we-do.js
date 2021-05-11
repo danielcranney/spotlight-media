@@ -26,7 +26,7 @@ const WhatWeDo = () => {
                 </h6>
 
                 <h1 className="w-4/5 leading-tight text-white text-left z-20">
-                We create compelling content
+                We create c<em className="em">o</em>mpelling c<em className="em">o</em>ntent
                 </h1>
             </div>
 

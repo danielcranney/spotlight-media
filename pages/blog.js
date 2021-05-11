@@ -1,10 +1,10 @@
-import { blogPosts } from '../lib/data';
-
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getAllPosts } from '../lib/data';
 
-const Blog = () => {
+const Blog = ({ posts }) => {
+
     return (
         <>
 
@@ -21,7 +21,7 @@ const Blog = () => {
             </div>
 
             {/* Hero Text Wrapper */}
-            <div className="flex flex-col items-start z-20 h-96 justify-end pb-16">
+            <div className="flex flex-col items-start z-20 h-60 justify-end pb-16">
 
             <div className="container mx-auto z-20 motion-safe:animate-fadeSlideUp">
                 <h6 className="tracking-wider text-yellow text-left uppercase font-normal z-20">
@@ -37,18 +37,34 @@ const Blog = () => {
         </div>
         
         {/* Blog Section */}
-        <div className="relative bg-white w-full">
+        <div className="relative bg-gray-100 w-full">
             <div className="container mx-auto py-20 text-left">
 
-                <div className="flex items-start">
+                <div className="flex items-start -m-2 flex-wrap justify-between xs:mx-4">
+                    
+                    { posts.map((item) => (
+                        <div className="sm:w-48pc md:w-32pc bg-white shadow-sm mb-8" key={item.slug}>
+                            <Link href={`/blog/${item.slug}`}>
+                                <a>
+                                    {/* <Image
+                                    src={item.img}
+                                    width={1080}
+                                    height={680}
+                                    /> */}
+                                </a>
+                            </Link>
 
-                    { blogPosts.map((item) => (
-                        <div key={item.slug}>
-                        <Link href={`/blog/${item.slug}`}>
-                            <a><h2>{item.title}</h2></a>
-                        </Link>
-                        <h5>{item.date.toString()}</h5>
-                        <p>{item.content}</p>
+                            <div className="py-4 px-6">
+                            <Link href={`/blog/${item.slug}`}>
+                                <a><h4>{item.title}</h4></a>
+                            </Link>
+                            <p className="font-bold">{item.date}</p>
+                            <p>{item.content.substring(1, 200)}</p>
+                            <Link href={`/blog/${item.slug}`}>
+                                <button className="btn-yellow-2-sm">Read more</button>
+                            </Link>
+                            </div>
+
                         </div>  
                     ))}
 
@@ -70,5 +86,20 @@ const Blog = () => {
         </>
     )
 }
+
+export async function getStaticProps() {
+
+    const allPosts = getAllPosts()
+
+    return {
+      props: {
+          posts: allPosts.map(({data, content, slug}) => ({
+            ...data,
+            content,
+            slug
+          }))
+      }
+    }
+  }
 
 export default Blog;

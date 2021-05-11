@@ -18,7 +18,6 @@ export default function BlogPost (props) {
                     {title} | Spotlight Media
                 </title>
             </Head>
-            
 
             {/* Full Screen Header */}
             <div className="relative bg-home-header bg-cover text-white w-full z-0 pt-24">

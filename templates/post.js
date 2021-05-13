@@ -2,13 +2,14 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function BlogPost () {
+export default function Post( { children, frontMatter }) {
 
+    const { title, date, img, excerpt, author, profilePicture } = frontMatter;
     return (
         <>
             <Head>
                 <title>
-                    Blog Post | Spotlight Media
+                    {title} | Spotlight Media
                 </title>
             </Head>
 
@@ -23,26 +24,22 @@ export default function BlogPost () {
                 <div className="flex flex-col items-start z-20 py-12 justify-center">
 
                     <div className="container mx-auto z-20 motion-safe:animate-fadeSlideUp">
-
-                        {/* { categories.map(category => (
-                            <button className="btn-yellow-2-xs">{category}</button>
-                        ))} */}
                         
                         <h1 className="w-4/5 leading-tight text-white text-left z-20 mb-6">
-                        {/* { title } */}
+                        { title }
                         </h1>
                         
                         <div className="flex items-center">
                             <div className="mr-4">
-                                {/* <Image
+                                <Image
                                     src={profilePicture}
-                                    width={40}
-                                    height={40}
-                                /> */}
+                                    width={60}
+                                    height={60}
+                                />
                             </div>
-                            <p className="text-white">Posted by AUTHOR on DATE</p>
+                            <p className="text-white text-xl">Posted by <strong>{author}</strong> on <strong>{date}</strong></p>
                         </div>
-
+                        
                     </div>
 
                 </div>
@@ -54,7 +51,7 @@ export default function BlogPost () {
             <div className="relative bg-white w-full">
                 <div className="container mx-auto py-16 text-left">   
                     {/* <p className="font-bold"> { date } </p>         */}
-                    {/* <p> { content } </p> */}
+                { children }
                 </div>
             </div>
             

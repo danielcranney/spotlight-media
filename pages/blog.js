@@ -1,9 +1,14 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getAllPosts } from '../lib/data';
+import { promises as fs } from 'fs';
+import path from 'path';
+import grayMatter from 'gray-matter';
+import matter from 'gray-matter';
 
 const Blog = ({ posts }) => {
+
+    console.log('posts', posts);
 
     return (
         <>
@@ -40,33 +45,45 @@ const Blog = ({ posts }) => {
         <div className="relative bg-gray-100 w-full">
             <div className="container mx-auto py-20 text-left">
 
-                <div className="flex items-start -m-2 flex-wrap justify-between xs:mx-4">
+                <div className="flex flex-wrap justify-between xs:mx-4 items-stretch">
                     
-                    { posts.map((item) => (
-                        <div className="sm:w-48pc md:w-32pc bg-white shadow-sm mb-8" key={item.slug}>
-                            <Link href={`/blog/${item.slug}`}>
+                { posts.map(post => {
+                    return (
+                        
+                        <div className="sm:w-48pc md:w-32pc bg-white shadow-sm flex flex-col" key={post.path} >
+                            
+                            <Link key={post.path} href={post.path}>
                                 <a>
-                                    {/* <Image
-                                    src={item.img}
-                                    width={1080}
-                                    height={680}
-                                    /> */}
+                                <Image
+                                src={post.img}
+                                width={1080}
+                                height={680}
+                                />
                                 </a>
                             </Link>
 
-                            <div className="py-4 px-6">
-                            <Link href={`/blog/${item.slug}`}>
-                                <a><h4>{item.title}</h4></a>
-                            </Link>
-                            <p className="font-bold">{item.date}</p>
-                            <p>{item.content.substring(1, 200)}</p>
-                            <Link href={`/blog/${item.slug}`}>
-                                <button className="btn-yellow-2-sm">Read more</button>
-                            </Link>
-                            </div>
+                            <div className="flex flex-col flex-grow py-4 px-6">
 
-                        </div>  
-                    ))}
+                            <Link key={post.path} href={post.path}>
+                                <a>
+                                    <h5>{post.title}</h5>
+                                </a>
+                            </Link>
+
+                            <p className="mb-2 mt-2">Posted by <strong>{post.author}</strong> on <strong>{post.date}</strong></p>
+
+                            <hr className="my-3 border-0 h-1 bg-yellow w-1/3" />
+
+                            <p className="mt-3 mb-auto">{post.excerpt.substring(0, 200)}</p>
+
+                            <button className="btn-yellow-2-sm self-start mt-6">Read more</button>
+
+                            </div>
+                        </div>
+                        
+                    )
+                })}
+                        
 
                 </div>
 
@@ -82,24 +99,129 @@ const Blog = ({ posts }) => {
             <button className="btn-yellow-2 mr-4">Contact us</button>
             </div>
         </div>
+
+
+
+
+        {/* EVERYTHING BELOW HERE WILL BE COPIED */}
+
+        <div className="flex items-start w-full flex-wrap">
+            <div className="w-1/2 pr-3 mb-8">
+                <h3>Videographer</h3>
+                <p><strong>Description:</strong> We are looking for a Junior Graphic Designer to work on a freelance basis with corporate clients.</p>
+
+                <p className="font-bold">Required Skills:</p>
+                <ul className="list mb-4">
+                <li>Proficient with Adobe Photoshop.</li>
+                <li>Proficient with Adobe Illustrator.</li>
+                <li>Proficient with Adobe InDesign.</li>
+                <li>Ability to consistently meet deadlines.</li>
+                </ul>
+
+                <p className="font-bold">Desired Skills:</p>
+                <ul className="list mb-4">
+                <li>Proficient with Adobe XD.</li>
+                <li>Illustration skills.</li>
+                </ul>
+
+                <p><strong>Location(s):</strong> This role is remote.</p>
+                <p className="font-bold">Rates and Working Pattern</p>
+                <p className="mb-8">This role pays by the day (fixed rate), to be negotiated, and days are booked on an ad-hoc basis.</p>
+                <a href="mailto:info@wearespotlight.media?subject=Junior Web Designer" target="_blank" className="btn-yellow-2-sm">Apply here</a>
+            </div>
+
+            <div className="w-1/2 pl-3 mb-8">
+                <h3>Junior Graphic Designer</h3>
+                <p><strong>Description:</strong> We are looking for an experienced videographer to work on a freelance basis with corporate clients across the South West and the Midlands.</p>
+
+                <p className="font-bold">Required Skills:</p>
+                <ul className="list mb-4">
+                <li>Highly proficient with cameras and experience working independently on corporate video projects.</li>
+                <li>Highly proficient lighting for video.</li>
+                <li>Highly proficient recording audio.</li>
+                <li>Full UK driving licence and own transport.</li>
+                <li>HMRC registered for Self Assessment purposes.</li>
+                </ul>
+
+                <p><strong>Location(s):</strong> This role requires the videographer to travel to properties and locations across the South West (though is largely based in Bristol) and the Midlands.</p>
+                <p className="font-bold">Rates and Working Pattern</p>
+                <p className="mb-8">This role pays by the day (fixed rate), to be negotiated, and days are booked on an ad-hoc basis.</p>
+                <a href="mailto:info@wearespotlight.media?subject=Junior Graphic Designer" target="_blank" className="btn-yellow-2-sm">Apply here</a>
+            </div>
+
+            <div className="w-1/2 pr-3 mt-8">
+                <h3>Junior Graphic Designer</h3>
+                <p><strong>Description:</strong> We are looking for a Junior Web Designer to work with corporate clients across the UK.</p>
+
+                <p className="font-bold">Required Skills:</p>
+                <ul className="list mb-4">
+                <li>High level of skill working with HTML & CSS.</li>
+                <li>Proficient with Adobe Photoshop.</li>
+                <li>Proficient with Adobe Illustrator.</li>
+                <li>Experienced working with Content Management Systems (Wordpress, Squarespace, Magento, Shopify and more).</li>
+                </ul>
+
+                <p className="font-bold">Desired Skills:</p>
+                <ul className="list mb-4">
+                <li>Experience configuring eCommerce systems.</li>
+                <li>Front-end or back-end coding language knowledge.</li>
+                </ul>
+
+                <p><strong>Location(s):</strong> This role is remote.</p>
+                <p className="font-bold">Rates and Working Pattern</p>
+                <p className="mb-8">This role pays by the day (fixed rate), to be negotiated, and days are booked on an ad-hoc basis.</p>
+                <a href="mailto:info@wearespotlight.media?subject=Junior Web Designer" target="_blank" className="btn-yellow-2-sm">Apply here</a>
+            </div>
+            
+            <div className="w-1/2 pl-3 mt-8">
+                <div className="bg-black p-10 text-white">
+                    <h3>Interested in a role?</h3>
+                    <hr className="bg-gray-500 h-1 border-0 my-4" />
+                    <p className="text-xl text-white">If you'd like to work with us, we'd love to hear from you.</p>
+                    <p className="text-xl text-white">Just send your showreel or portfolio and CV to <a href="mailto:info@wearespotlight.co.uk">info@wearespotlight.co.uk</a>, or use the form on the contact page.</p>
+                </div>
+            </div>
+        </div>
+
+        {/* EVERYTHING ABOVE HERE WILL BE COPIED */}
         
         </>
     )
 }
 
+export default Blog;
+
 export async function getStaticProps() {
 
-    const allPosts = getAllPosts()
+    const postsDirectory = path.join(process.cwd(), 'pages/posts');
+    const filenames = await fs.readdir(postsDirectory);
 
+    const files = await Promise.all(filenames.map(async filename => {
+        const filePath = path.join(postsDirectory, filename)
+        const content = await fs.readFile(filePath, 'utf8')
+        const matter = grayMatter(content);
+        return {
+            filename,
+            matter,
+            content
+        }
+    }));
+
+    const posts = files.map(file => {
+        return {
+            path: `/posts/${file.filename.replace('.mdx', '')}`,
+            title: file.matter.data.title,
+            date: file.matter.data.date,
+            img: file.matter.data.img,
+            excerpt: file.matter.data.excerpt,
+            author: file.matter.data.author,
+            profilePicture: file.matter.data.profilePicture,
+            // content: file.matter.content
+        }
+    });
     return {
-      props: {
-          posts: allPosts.map(({data, content, slug}) => ({
-            ...data,
-            content,
-            slug
-          }))
-      }
+        props: {
+            posts
+        }
     }
-  }
-
-export default Blog;
+}

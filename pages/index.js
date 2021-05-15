@@ -4,7 +4,6 @@ import Link from 'next/link';
 
 const Home = () => {
 
-
   return (
     <div className="App relative bg-white flex flex-col items-center">
 

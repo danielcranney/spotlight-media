@@ -26,7 +26,7 @@ const Contact = () => {
         });
         setStatus("Submit");
         let result = await response.json();
-        alert(result.status);
+        // alert(result.status);
         setSuccess("Your form has been submitted");
         name.value = "";
         email.value = "";

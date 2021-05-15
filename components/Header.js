@@ -17,10 +17,14 @@ const Header = () => {
 
             {/* Logo */}
             <div className="object-scale-down flex-shrink-0 w-40 mr-auto z-20 motion-safe:animate-fadeSlideDown">
-              <Image
-              src="/logo.svg"
-              width={1550}
-              height={421} />
+              <Link href="/">
+                <a>
+                  <Image
+                  src="/logo.svg"
+                  width={1550}
+                  height={421} />
+                </a>
+              </Link>
             </div>
 
             <button
@@ -36,7 +40,7 @@ const Header = () => {
               "lg:flex flex-grow items-center transition duration-500 ease-in-out mt-4 lg:mt-0" +
               (navbarOpen ? " flex" : " hidden")
             }
-            id="example-navbar-danger"
+            id="navbar"
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="nav-item lg:mx-4 mx-0">

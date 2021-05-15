@@ -108,17 +108,17 @@ const Footer = () => {
                 </div>
             </div>
             
-            <div className="flex items-start mt-16 pt-8 border-t-2 border-gray-900">
+            <div className="flex flex-col md:flex-row items-start mt-8 pt-8 border-t-2 border-gray-900">
 
-                <div className="w-1/2 text-left">
+                <div className="w-full md:w-1/2 text-left">
                     <p className="text-white leading-8">&copy; 2020 Spotlight Media. All rights reserved.</p>
                 </div>
 
-                <div className="w-1/2 text-right flex justify-end items-center">
+                <div className="w-full md:w-1/2 text-left md:text-right flex justify-start md:justify-end items-center">
                     <div className="h-nav">
                         <a href="">Terms &amp; Conditions</a>
                     </div>
-                    <span className="text-white leading-8">|</span>
+                    <span className="text-white leading-8 mr-4 md:mr-0">|</span>
                     <div className="h-nav">
                         <a href="">Privacy Policy</a>
                     </div>

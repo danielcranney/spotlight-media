@@ -55,7 +55,8 @@
     /* Horizontal Navigation */
     .h-nav {
       @apply
-      mx-4
+      mr-4
+      md:mx-4
       py-1
       leading-8
       text-gray-600

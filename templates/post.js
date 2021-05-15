@@ -52,8 +52,7 @@ export default function Post( { children, frontMatter }) {
             {/* Blog Post */}
         
             <div className="relative bg-white w-full">
-                <div className="container mx-auto py-16 text-left">   
-                    {/* <p className="font-bold"> { date } </p>         */}
+                <div className="container mx-auto py-12 text-left">
                 { children }
                 </div>
             </div>

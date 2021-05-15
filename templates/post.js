@@ -17,7 +17,7 @@ export default function Post( { children, frontMatter }) {
             <div className="relative bg-home-header bg-cover text-white w-full z-0 pt-24">
                  
                 {/* Overlay */}
-                <div className="absolute w-full h-96 bg-black opacity-50 z-0">
+                <div className="absolute w-full h-36 md:h-60 bg-black opacity-50 z-0">
                 </div>
 
                 {/* Hero Text Wrapper */}

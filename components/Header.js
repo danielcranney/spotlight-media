@@ -9,7 +9,7 @@ const Header = () => {
       <div className="flex container mx-auto h-24 items-center">
         
         {/* Logo */}
-        <div className="object-scale-down w-40 mr-auto z-20 motion-safe:animate-fadeSlideDown">
+        <div className="object-scale-down flex-shrink-0 w-40 mr-auto z-20 motion-safe:animate-fadeSlideDown">
           <Image
           src="/logo.svg"
           width={1550}
@@ -36,8 +36,8 @@ const Header = () => {
               </Link>
             </div>
             <div className="mx-4">
-              <Link href="/our-clients">
-                <a className="v-nav">Our Clients</a>
+              <Link href="/clients">
+                <a className="v-nav">Clients</a>
               </Link>
             </div>
             <div className="mx-4">

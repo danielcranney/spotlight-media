@@ -7,28 +7,28 @@
 
 @layer base {
     * {
-        @apply antialiased font-body;
+        @apply antialiased font-body box-border;
     }
     h1, h2, h3, h4, h5, h6 {
         @apply font-bold tracking-tight mb-2;
     }
     h1 {
-      @apply text-6xl;
+      @apply text-4xl md:text-5xl lg:text-6xl;
     }
     h2 {
-      @apply text-5xl;
+      @apply text-3xl md:text-5xl lg:text-5xl;
     }
     h3 {
-        @apply text-4xl;
+        @apply text-2xl md:text-3xl lg:text-4xl;
     }
     h4 {
-        @apply text-3xl;
+        @apply text-xl md:text-2xl lg:text-3xl;
     }
     h5 {
-        @apply text-2xl;
+        @apply text-lg md:text-xl lg:text-2xl;
     }
     h6 {
-        @apply text-xl;
+        @apply text-sm md:text-base lg:text-xl;
     }
     p {
         @apply text-base text-gray-900 mb-4 leading-relaxed;
@@ -99,7 +99,7 @@
       hover:border-white
       focus:outline-none
       focus:ring-2
-      focus:ring-yellow
+      focus:ring-gray-200
       focus:ring-opacity-75;
     }
   }
@@ -119,7 +119,7 @@
       hover:text-white
       focus:outline-none
       focus:ring-2
-      focus:ring-yellow
+      focus:ring-gray-200
       focus:ring-opacity-75;
     }
   }
@@ -141,7 +141,7 @@
       hover:text-white
       focus:outline-none
       focus:ring-2
-      focus:ring-yellow
+      focus:ring-gray-200
       focus:ring-opacity-75;
     }
   }
@@ -165,7 +165,7 @@
       hover:text-white
       focus:outline-none
       focus:ring-2
-      focus:ring-yellow
+      focus:ring-gray-200
       focus:ring-opacity-75;
     }
   }

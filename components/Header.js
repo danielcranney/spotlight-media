@@ -11,7 +11,8 @@ const Header = () => {
     return (
 
     <>
-      <nav className="flex flex-wrap items-center justify-between z-20 absolute w-full bg-black">
+      <nav className={"flex flex-wrap items-center justify-between z-20 fixed w-full bg-black" +
+              (navbarOpen ? " border-b-2 border-gray-700" : " border-b-0")}>
         <div className="container mx-auto flex flex-wrap items-center justify-between my-6">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
 

@@ -15,7 +15,7 @@ const WhatWeDo = () => {
 
     const mountAnimation1 = `
     0% {opacity: 0}
-    50% {opacity: 0}
+    30% {opacity: 0}
     100% {opacity: 1}
     `;
     const handleVideoContent = (e) => {
@@ -73,9 +73,13 @@ const WhatWeDo = () => {
         <div className="relative bg-white w-full">
             <div className="container mx-auto py-16 flex flex-col">
 
+            <p className="text-xl mb-8">
+                We offer a great range of services across video production, web development and design.
+                </p>
+
                 <div className="flex w-full bg-white border-0">
 
-                    <a href="#" onClick={handleVideoContent} className={`flex items-center w-1/3 transition-all duration-500 p-4 border-2 border-white text-center ${(showVideo) ? 'bg-yellow' : 'bg-gray-200'} `}>
+                    <a href="#" onClick={handleVideoContent} className={`flex items-center w-1/3 transition-all duration-500  ease-in-out p-4 border-2 border-white text-center ${(showVideo) ? 'bg-yellow' : 'bg-gray-200'} `}>
                         {/* Video Title */}
                         <p className="mb-0 mx-auto font-bold text-base md:text-xl tracking-tight">Video Production</p>
                     </a>

@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 
+const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
 export default function Post( { children, frontMatter }) {
 
     const { title, date, img, excerpt, author, profilePicture } = frontMatter;
@@ -37,7 +39,8 @@ export default function Post( { children, frontMatter }) {
                                     height={60}
                                 />
                             </div>
-                            <p className="text-white text-xl">Posted by <strong>{author}</strong> on <strong>{date}</strong></p>
+                            <p className="text-white text-xl">Posted by <strong>{author}</strong> on <strong>{
+                                new Date(`${date}`).toLocaleDateString("en-GB", dateOptions)}</strong></p>
                         </div>
                         
                     </div>

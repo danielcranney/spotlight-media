@@ -38,7 +38,7 @@ const Header = () => {
           </div>
           <div
             className={
-              "lg:flex flex-grow items-center transition duration-500 ease-in-out mt-4 lg:mt-0" +
+              "motion-safe:animate-fadeSlideDown lg:flex flex-grow items-center transition duration-500 ease-in-out mt-4 lg:mt-0" +
               (navbarOpen ? " flex" : " hidden")
             }
             id="navbar"

@@ -8,13 +8,12 @@ const VideoServices = () => {
             {/* Promotional videos */}
             <div className="w-full md:w-1/3 p-4 flex flex-col">
                 
-            <div className="w-1/6 md:w-1/4 xl:w-1/6 mr-auto flex">
+            <div className="w-1/6 md:w-1/3 xl:w-1/5 mr-auto flex transition duration-500 ease-in-out transform hover:scale-125">
             <Image
                 src="/service-icon-01.svg"
                 alt="Service"
                 width={1426}
                 height={1198}
-                className="transition duration-500 ease-in-out transform hover:scale-110"
             />
             </div>
 
@@ -26,13 +25,12 @@ const VideoServices = () => {
             {/* Corporate communications */}
             <div className="w-full md:w-1/3 p-4 flex flex-col">
                 
-            <div className="w-1/6 md:w-1/4 xl:w-1/6 mr-auto flex">
+            <div className="w-1/6 md:w-1/3 xl:w-1/5 mr-auto flex transition duration-500 ease-in-out transform hover:scale-125">
             <Image
                 src="/service-icon-02.svg"
                 alt="Service"
                 width={1426}
                 height={1198}
-                className="transition duration-500 ease-in-out transform hover:scale-110"
             />
             </div>
 
@@ -45,13 +43,12 @@ const VideoServices = () => {
             {/* Customer testimonials */}
             <div className="w-full md:w-1/3 p-4 flex flex-col">
                 
-            <div className="w-1/6 md:w-1/4 xl:w-1/6 mr-auto flex">
+            <div className="w-1/6 md:w-1/3 xl:w-1/5 mr-auto flex transition duration-500 ease-in-out transform hover:scale-125">
             <Image
                 src="/service-icon-03.svg"
                 alt="Service"
                 width={1426}
                 height={1198}
-                className="transition duration-500 ease-in-out transform hover:scale-110"
             />
             </div>
 

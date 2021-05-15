@@ -65,7 +65,7 @@ const Home = () => {
 
                 <div className="w-full md:w-1/3 mr-4 text-center flex-col flex mb-8 md:mb-0">
                     {/* Icon */}
-                    <div className="w-1/5 md:w-1/3 mb-4 mx-auto">
+                    <div className="w-1/5 md:w-1/3 mb-4 mx-auto transition duration-500 ease-in-out transform hover:scale-110">
                     <Image
                       src="/service-icon-1.svg"
                       width={270}
@@ -83,7 +83,7 @@ const Home = () => {
 
                 <div className="w-full md:w-1/3 mr-4 text-center flex-col flex mb-8 md:mb-0">
                     {/* Icon */}
-                    <div className="w-1/5 md:w-1/3 mb-4 mx-auto">
+                    <div className="w-1/5 md:w-1/3 mb-4 mx-auto transition duration-500 ease-in-out transform hover:scale-110">
                     <Image
                       src="/service-icon-2.svg"
                       width={270}
@@ -101,7 +101,7 @@ const Home = () => {
 
                 <div className="w-full md:w-1/3 mr-4 text-center flex-col flex mb-8 md:mb-0">
                     {/* Icon */}
-                    <div className="w-1/5 md:w-1/3 mb-4 mx-auto">
+                    <div className="w-1/5 md:w-1/3 mb-4 mx-auto transition duration-500 ease-in-out transform hover:scale-110">
                     <Image
                       src="/service-icon-3.svg"
                       width={270}

@@ -1,14 +1,15 @@
-const composePlugins = require('next-compose-plugins');
-const mdxEnhanced = require('next-mdx-enhanced');
+const composePlugins = require("next-compose-plugins");
+const mdxEnhanced = require("next-mdx-enhanced");
 
-module.exports = composePlugins([
+module.exports = composePlugins(
+  [
     mdxEnhanced({
-        layoutPath: './templates'
-    })
-], {
+      layoutPath: "./templates",
+    }),
+  ],
+  {
     images: {
-        domains: [
-            'www.nasa.gov'
-        ]
-    }
-});
+      domains: ["www.nasa.gov"],
+    },
+  }
+);

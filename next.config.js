@@ -11,5 +11,9 @@ module.exports = composePlugins(
     images: {
       domains: ["www.nasa.gov"],
     },
+    env: {
+      mailUsername: "info@wearespotlight.co.uk",
+      mailPassword: "Spotlight_613",
+    },
   }
 );

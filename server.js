@@ -14,12 +14,13 @@ const contactEmail = nodemailer.createTransport({
   host: "smtp.gmail.com",
   service: "gmail",
   port: 465,
-  secure: false,
+  secure: true,
   auth: {
     type: "OAuth2",
     user: "info@wearespotlight.co.uk",
-    pass: process.env.MAIL_PASSWORD,
-    clientId: process.env.NEXT_PUBLIC_GMAIL_CLIENT_ID,
+    pass: process.env.mailPassword,
+    clientId:
+      "545916667283-24qj8io16v99lg7755uh2fv29j6q8049.apps.googleusercontent.com",
     clientSecret: "fL4cXFGcY1zCA537us3fwDhH",
     refreshToken:
       "1//04t69p756gddQCgYIARAAGAQSNwF-L9IrnkdGFDN2hxhOKDBEVXsx09Ku3E467tt9XIySuzRTUhK04DMkIpKmNIF7lE-q-P4tZUw",

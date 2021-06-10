@@ -3,8 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Home = () => {
-  console.log(process.env.NEXT_PUBLIC_GMAIL_CLIENT_ID);
-
   return (
     <div className="relative flex flex-col items-center bg-white App">
       <Head>

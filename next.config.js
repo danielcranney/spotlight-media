@@ -12,8 +12,8 @@ module.exports = composePlugins(
       domains: ["www.nasa.gov"],
     },
     env: {
-      mailUsername: "info@wearespotlight.co.uk",
-      mailPassword: "Spotlight_613",
+      // mailUsername: "info@wearespotlight.co.uk",
+      // mailPassword: "Spotlight_613",
     },
   }
 );

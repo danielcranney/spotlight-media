@@ -14,11 +14,11 @@ const contactEmail = nodemailer.createTransport({
   host: "smtp.gmail.com",
   service: "gmail",
   port: 465,
-  secure: true,
+  secure: false,
   auth: {
     type: "OAuth2",
     user: "info@wearespotlight.co.uk",
-    pass: process.env.mailPassword,
+    pass: "Spotlight_613",
     clientId:
       "545916667283-24qj8io16v99lg7755uh2fv29j6q8049.apps.googleusercontent.com",
     clientSecret: "fL4cXFGcY1zCA537us3fwDhH",
@@ -31,7 +31,7 @@ contactEmail.verify((error) => {
   if (error) {
     console.log(error);
   } else {
-    console.log("Ready to Send");
+    console.log("Ready to Send Now");
   }
 });
 

@@ -1,39 +1,73 @@
 import Head from "next/head";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const Contact = () => {
-  console.log(`The username is ${process.env.mailUsername}`);
-  console.log(`The password is ${process.env.mailPassword}`);
-
-  const inputElement = useRef(null);
-
+  const inputElement = useRef();
   const [status, setStatus] = useState("Submit");
   const [success, setSuccess] = useState(null);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const [buttonStatus, setButtonStatus] = useState("Send");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
-    const { name, email, message } = e.target.elements;
-    let details = {
-      name: name.value,
-      email: email.value,
-      message: message.value,
+    console.log("Sending");
+    let data = {
+      name,
+      email,
+      message,
     };
-    let response = await fetch("http://localhost:5000/contact", {
+    await fetch("/api/contact", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json;charset=utf-8",
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(details),
+      body: JSON.stringify(data),
+    }).then((res) => {
+      console.log("Response received");
+      console.log(res.status);
+      if (res.status === 200) {
+        console.log("Response succeeded!");
+        setSubmitted(true);
+        setSuccess("Your form has been submitted");
+        setName("");
+        setEmail("");
+        setBody("");
+      } else {
+      }
     });
-    setStatus("Submit");
-    let result = await response.json();
-    // alert(result.status);
-    setSuccess("Your form has been submitted");
-    name.value = "";
-    email.value = "";
-    message.value = "";
   };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setStatus("Sending...");
+  //   const { name, email, message } = e.target.elements;
+  //   let details = {
+  //     name: name.value,
+  //     email: email.value,
+  //     message: message.value,
+  //   };
+  //   let response = await fetch("http://localhost:5000/contact", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json;charset=utf-8",
+  //     },
+  //     body: JSON.stringify(details),
+  //   });
+  //   setStatus("Submit");
+  //   let result = await response.json();
+  //   // alert(result.status);
+  //   setSuccess("Your form has been submitted");
+  //   name.value = "";
+  //   email.value = "";
+  //   message.value = "";
+  // };
 
   return (
     <>
@@ -78,6 +112,123 @@ const Contact = () => {
                 <></>
               )}
 
+              {/* Form */}
+              <div>
+                <form>
+                  <label htmlFor="name" className="flex mb-2">
+                    <div className="mr-2">
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                        />
+                      </svg>
+                    </div>
+                    <div className="flex-grow">
+                      <label htmlFor="name">Name:</label>
+                    </div>
+                  </label>
+                  {/* <label htmlFor="name">Name</label> */}
+                  <input
+                    type="text"
+                    placeholder="John Smith"
+                    ref={inputElement}
+                    className="mt-2 mb-8"
+                    onChange={(e) => {
+                      setName(e.target.value);
+                      console.log(name);
+                    }}
+                    required
+                    name="name"
+                  />
+
+                  <label className="flex mb-2">
+                    <div className="mr-2">
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                        />
+                      </svg>
+                    </div>
+                    <div className="flex-grow">
+                      <label htmlFor="email">Email:</label>
+                    </div>
+                  </label>
+
+                  {/* <label htmlFor="email">Email</label> */}
+                  <input
+                    type="email"
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                    name="email"
+                    placeholder="john@smith.com"
+                    className="mt-2 mb-8"
+                    required
+                  />
+
+                  <label className="flex mb-2">
+                    <div className="mr-2">
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                        />
+                      </svg>
+                    </div>
+                    <div className="flex-grow">
+                      <label htmlFor="message">Message:</label>
+                    </div>
+                  </label>
+
+                  <textarea
+                    type="text"
+                    onChange={(e) => {
+                      setMessage(e.target.value);
+                    }}
+                    name="message"
+                    className="mt-2 h-36"
+                    required
+                  />
+
+                  <button
+                    type="submit"
+                    onClick={(e) => {
+                      handleSubmit(e);
+                    }}
+                    className="mt-4 btn-yellow-2"
+                  >
+                    Send
+                  </button>
+                </form>
+              </div>
+
+              {/* Old Form */}
               <form onSubmit={handleSubmit}>
                 <div className="flex mb-2">
                   <div className="mr-2">
@@ -97,7 +248,7 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div className="flex-grow">
-                    <label htmlFor="name">Name:</label>
+                    <label htmlFor="name">NamJKJKJÛe:</label>
                   </div>
                 </div>
                 <input
@@ -134,8 +285,8 @@ const Contact = () => {
                   type="email"
                   id="email"
                   placeholder="john@smith.com"
-                  required
                   className="mt-2 mb-8"
+                  required
                 />
 
                 <div className="flex mb-2">
@@ -164,27 +315,6 @@ const Contact = () => {
                   {status}
                 </button>
               </form>
-
-              {/* <form>
-                    <div class="mb-4">
-                        <label class="block text-md font-light mb-2" for="username">Username</label>
-                        <input type="text" name="username" id="" placeholder="Username" />
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-md font-light mb-2" for="password">Password</label>
-                        <input type="password" name="password" id="" placeholder="Password" />
-                    </div>
-
-                    <div class="flex items-center justify-between mb-5">
-                        <button class="bg-indigo-600 hover:bg-blue-700 text-white font-light py-2 px-6 rounded focus:outline-none focus:shadow-outline" type="button">
-                        LOGIN
-                        </button>
-                        <a class="inline-block align-baseline font-light text-sm text-indigo-600 hover:text-indigo-500" href="#">
-                        Forgot Password?
-                        </a>
-                    </div>
-                    <p class="text-center text-md font-light">Don't have an account? <a class="font-light text-md text-indigo-600">Create</a></p>
-                    </form> */}
             </div>
 
             <div className="w-full mt-16 md:w-1/3 md:mt-0">

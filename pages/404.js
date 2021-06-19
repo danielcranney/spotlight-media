@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image'
 
 const Custom404 = () => {
     return (

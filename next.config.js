@@ -17,3 +17,26 @@ module.exports = composePlugins(
     },
   }
 );
+
+module.exports = {
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.node = {
+        //       externals: [
+        //   "child_process",
+        //   "dns",
+        //   "fs",
+        //   "net",
+        //   "tls",
+        // ]
+        net: "empty",
+        dns: "empty",
+        child_process: "empty",
+        tls: "empty",
+        fs: "empty",
+      };
+    }
+
+    return config;
+  },
+};

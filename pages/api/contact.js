@@ -1,4 +1,4 @@
-export default function (req, res) {
+export default async function contact(req, res) {
   require("dotenv").config();
 
   let nodemailer = require("nodemailer");
@@ -27,8 +27,13 @@ export default function (req, res) {
              <p>Message: ${req.body.message}</p>`,
   };
   transporter.sendMail(mailData, function (err, info) {
-    if (err) console.log(err);
-    else console.log(info);
+    if (err) {
+      console.log(err);
+    } else {
+      // console.log(info);
+      console.log(`The status code is: ${res.statusCode}`);
+    }
   });
-  res.status(200);
+  console.log(req.body); // Form Contents
+  res.status(200).json({ message: "Success!" });
 }

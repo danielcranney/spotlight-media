@@ -2,72 +2,82 @@ import Head from "next/head";
 import React, { useState, useRef, useEffect } from "react";
 
 const Contact = () => {
-  const inputElement = useRef();
+  const nameElement = useRef();
+  const emailElement = useRef();
+  const messageElement = useRef();
+
   const [status, setStatus] = useState("Submit");
   const [success, setSuccess] = useState(null);
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const [buttonStatus, setButtonStatus] = useState("Send");
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [message, setMessage] = useState(null);
+  // const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     setStatus("Sending...");
-    console.log("Sending");
+
     let data = {
       name,
       email,
       message,
     };
-    await fetch("/api/contact", {
+
+    const res = await fetch("/api/contact", {
       method: "POST",
       headers: {
-        Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((res) => {
-      console.log("Response received");
-      console.log(res.status);
-      if (res.status === 200) {
-        console.log("Response succeeded!");
-        setSubmitted(true);
-        setSuccess("Your form has been submitted");
-        setName("");
-        setEmail("");
-        setBody("");
-      } else {
-      }
     });
+
+    const result = await res.status;
+    console.log("Here it is!");
+    console.log(result); // 200
+
+    if (result === 200) {
+      console.log("Sent!");
+      setStatus("Submit");
+
+      setSuccess(true);
+      setName("");
+      setEmail("");
+      setMessage("");
+      nameElement.current.value = "";
+      emailElement.current.value = "";
+      messageElement.current.value = "";
+    }
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setStatus("Sending...");
-  //   const { name, email, message } = e.target.elements;
-  //   let details = {
-  //     name: name.value,
-  //     email: email.value,
-  //     message: message.value,
-  //   };
-  //   let response = await fetch("http://localhost:5000/contact", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json;charset=utf-8",
-  //     },
-  //     body: JSON.stringify(details),
+  // async function getData(req, res) {
+  //   return new Promise((resolve, reject) => {
+  //     fetch("/api/contact", {
+  //       method: "POST",
+  //       headers: {
+  //         Accept: "application/json, text/plain, */*",
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(data),
+  //     })
+  //       .then((response) => {
+  //         console.log(response);
+  //         console.log("We have got here");
+
+  //         res.setHeader("Content-Type", "application/json");
+  //         res.setHeader("Cache-Control", "max-age=180000");
+  //         res.end(JSON.stringify(response));
+  //         return resolve();
+  //       })
+  //       .catch((error) => {
+  //         console.log("An error has occurred!");
+  //         res.json(error);
+  //         res.status(405).end();
+  //         return reject(); //in case something goes wrong in the catch block (as vijay) commented
+  //       });
   //   });
-  //   setStatus("Submit");
-  //   let result = await response.json();
-  //   // alert(result.status);
-  //   setSuccess("Your form has been submitted");
-  //   name.value = "";
-  //   email.value = "";
-  //   message.value = "";
-  // };
+  // }
 
   return (
     <>
@@ -140,11 +150,10 @@ const Contact = () => {
                   <input
                     type="text"
                     placeholder="John Smith"
-                    ref={inputElement}
+                    ref={nameElement}
                     className="mt-2 mb-8"
                     onChange={(e) => {
                       setName(e.target.value);
-                      console.log(name);
                     }}
                     required
                     name="name"
@@ -180,6 +189,7 @@ const Contact = () => {
                     }}
                     name="email"
                     placeholder="john@smith.com"
+                    ref={emailElement}
                     className="mt-2 mb-8"
                     required
                   />
@@ -213,6 +223,7 @@ const Contact = () => {
                     }}
                     name="message"
                     className="mt-2 h-36"
+                    ref={messageElement}
                     required
                   />
 
@@ -223,13 +234,13 @@ const Contact = () => {
                     }}
                     className="mt-4 btn-yellow-2"
                   >
-                    Send
+                    {status}
                   </button>
                 </form>
               </div>
 
               {/* Old Form */}
-              <form onSubmit={handleSubmit}>
+              {/* <form onSubmit={handleSubmit}>
                 <div className="flex mb-2">
                   <div className="mr-2">
                     <svg
@@ -315,6 +326,7 @@ const Contact = () => {
                   {status}
                 </button>
               </form>
+            */}
             </div>
 
             <div className="w-full mt-16 md:w-1/3 md:mt-0">

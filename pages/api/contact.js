@@ -7,7 +7,7 @@ export default async function contact(req, res) {
     host: "smtp.gmail.com",
     service: "gmail",
     port: 465,
-    secure: true,
+    secure: false,
     auth: {
       type: "OAuth2",
       user: process.env.MAIL_USERNAME,

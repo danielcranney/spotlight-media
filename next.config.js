@@ -27,10 +27,6 @@ module.exports = {
 }
 
 module.exports = {
-  target: 'serverless'
-}
-
-module.exports = {
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.node = {

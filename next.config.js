@@ -19,6 +19,18 @@ module.exports = composePlugins(
 );
 
 module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/index',
+        permanent: true,
+      },
+    ]
+  },
+}
+
+module.exports = {
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.node = {

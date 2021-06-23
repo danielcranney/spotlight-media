@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Custom404 = () => {
     return (
@@ -10,75 +11,31 @@ const Custom404 = () => {
     </Head>
 
         {/* Full Screen Header */}
-        <div className="relative bg-home-header bg-cover text-white w-full z-0 pt-24">
+        <div className="relative z-0 w-full pt-24 text-white bg-cover bg-home-header">
             
             {/* Overlay */}
-            <div className="absolute w-full h-36 md:h-60 bg-black opacity-50 z-0">
+            <div className="absolute z-0 w-full bg-black opacity-50 h-72 md:h-72">
             </div>
 
             {/* Hero Text Wrapper */}
-            <div className="flex flex-col items-start z-20 h-36 md:h-60 justify-center">
+            <div className="z-20 flex flex-col items-start justify-center h-72 md:h-72">
 
-            <div className="container mx-auto z-20 motion-safe:animate-fadeSlideUp">
-                <h6 className="tracking-wider text-gray-500 text-left uppercase font-normal z-20">
-                Our Team
+            <div className="container z-20 mx-auto motion-safe:animate-fadeSlideUp">
+                <h6 className="z-20 font-normal tracking-wider text-left text-gray-500 uppercase">
+                Oops!
                 </h6>
 
-                <h1 className="w-4/5 leading-tight text-white text-left z-20">
-                Who we are
+                <h1 className="z-20 w-4/5 leading-tight text-left text-white">
+                404: Page Not Found
                 </h1>
+                        
+                <p className="text-white">Go back <Link href="/"><a className="p-0 m-0 h-nav">home</a></Link> to try again.</p>
+                        
             </div>
 
             </div>
         </div>
         
-        {/* Our Team */}
-        <div className="relative bg-white w-full">
-            <div className="container mx-auto py-16 text-left">
-                <h2 className="mb-8">Our Team</h2>
-                <p className="text-xl mb-16">
-                We’re a small team with lots of experience, and we work with a network of creatives around the UK.
-                </p>
-
-                <div className="flex flex-col md:flex-row">
-                {/* Dan Section */}
-                    <div className="flex items-start w-full mb-6 md:w-1/2 md:mb-0">
-                        <div className="w-1/3 mr-4">
-                        <Image
-                        src="/headshot-1.png"
-                        alt="Rich Weatherson headshot"
-                        width={600}
-                        height={617}
-                        />
-                        </div>
-
-                        <div className="w-2/3 mr-4 text-left flex-col flex">
-                        <h4 className="mb-2">Rich Weatherson</h4>
-                        <p className="text-base uppercase tracking-wide leading-relaxed font-semibold mb-4 opacity-50">Founder &amp; Partner</p>
-                        <p className="leading-8">Rich has over a decade of experience working as a freelance videographer and has worked with multinational clients such as Discovery and Sky.</p>
-                        </div>
-                    </div>
-
-                    {/* Rich Section */}
-                    <div className="flex items-start w-full md:w-1/2">
-                        <div className="w-1/3 mr-4">
-                        <Image src="/headshot-2.png"
-                        alt="Dan Cranney headshot"
-                        width={600}
-                        height={617}
-                        />
-                        </div>
-
-                        <div className="w-2/3 mr-4 text-left flex-col flex">
-                        <h4 className="mb-2">Dan Cranney</h4>
-                        <p className="text-base uppercase tracking-wide leading-relaxed font-semibold mb-4 opacity-50">Founder &amp; Partner</p>
-                        <p className="leading-8">Dan has worked a multidisciplinary media creative for over ten years, across videography, web development and design.</p>
-                        </div>
-                    </div>
-                </div>
-            
-            </div>
-        </div>
     </>
     )
   };

@@ -9,7 +9,7 @@ const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'num
 
 const Blog = ({ posts }) => {
 
-    console.log('posts', posts);
+    // console.log('posts', posts);
 
     return (
         <>
@@ -20,20 +20,20 @@ const Blog = ({ posts }) => {
         </Head>
 
          {/* Full Screen Header */}
-         <div className="relative bg-home-header bg-cover text-white w-full z-0 pt-24">
+         <div className="relative z-0 w-full pt-24 text-white bg-cover bg-home-header">
             {/* Overlay */}
-            <div className="absolute w-full h-36 md:h-60 bg-black opacity-50 z-0">
+            <div className="absolute z-0 w-full bg-black opacity-50 h-36 md:h-60">
             </div>
 
             {/* Hero Text Wrapper */}
-            <div className="flex flex-col items-start z-20 h-36 md:h-60 justify-center">
+            <div className="z-20 flex flex-col items-start justify-center h-36 md:h-60">
 
-            <div className="container mx-auto z-20 motion-safe:animate-fadeSlideUp">
-                <h6 className="tracking-wider text-gray-500 text-left uppercase font-normal z-20">
+            <div className="container z-20 mx-auto motion-safe:animate-fadeSlideUp">
+                <h6 className="z-20 font-normal tracking-wider text-left text-gray-500 uppercase">
                 What We're up to
                 </h6>
 
-                <h1 className="w-4/5 leading-tight text-white text-left z-20">
+                <h1 className="z-20 w-4/5 leading-tight text-left text-white">
                 Blog
                 </h1>
             </div>
@@ -42,15 +42,15 @@ const Blog = ({ posts }) => {
         </div>
         
         {/* Blog Section */}
-        <div className="relative bg-gray-100 w-full">
-            <div className="container mx-auto py-16 text-left">
+        <div className="relative w-full bg-gray-100">
+            <div className="container py-16 mx-auto text-left">
 
-                <div className="flex flex-wrap justify-between xs:mx-4 items-stretch">
+                <div className="flex flex-wrap items-stretch justify-between xs:mx-4">
                     
                 { posts.map(post => {
                     return (
                         
-                        <div className="w-full sm:w-48pc lg:w-32pc bg-white shadow-sm flex flex-col mb-8" key={post.path} >
+                        <div className="flex flex-col w-full mb-8 bg-white shadow-sm sm:w-48pc lg:w-32pc" key={post.path} >
                             
                             <Link href={post.path}>
                                 <a>
@@ -62,7 +62,7 @@ const Blog = ({ posts }) => {
                                 </a>
                             </Link>
 
-                            <div className="flex flex-col flex-grow py-4 px-6">
+                            <div className="flex flex-col flex-grow px-6 py-4">
 
                             <Link href={post.path}>
                                 <a>
@@ -70,14 +70,14 @@ const Blog = ({ posts }) => {
                                 </a>
                             </Link>
 
-                            <p className="mb-2 mt-2">Posted by <strong>{post.author}</strong> on <strong>{
+                            <p className="mt-2 mb-2">Posted by <strong>{post.author}</strong> on <strong>{
                                 new Date(`${post.date}`).toLocaleDateString("en-GB", dateOptions)}</strong></p>
 
-                            <hr className="my-3 border-0 h-1 bg-yellow w-1/3" />
+                            <hr className="w-1/3 h-1 my-3 border-0 bg-yellow" />
 
                             <p className="mt-3 mb-auto">{post.excerpt.substring(0, 200)}</p>
 
-                            <Link href={post.path}><a className="btn-yellow-2-sm self-start mt-6">Read more</a>
+                            <Link href={post.path}><a className="self-start mt-6 btn-yellow-2-sm">Read more</a>
                             </Link>
 
                             </div>

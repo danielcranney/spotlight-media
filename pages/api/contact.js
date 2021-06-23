@@ -10,7 +10,7 @@ export default async function contact(req, res) {
     secure: false,
     auth: {
       type: "OAuth2",
-      user: "info@wearespotlight.co.uk",
+      user: process.env.MAIL_USERNAME,
       pass: process.env.MAIL_PASSWORD,
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,

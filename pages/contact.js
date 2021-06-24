@@ -12,7 +12,6 @@ const Contact = () => {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [message, setMessage] = useState(null);
-  // const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

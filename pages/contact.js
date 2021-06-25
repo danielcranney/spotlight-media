@@ -13,70 +13,58 @@ const Contact = () => {
   const [email, setEmail] = useState(null);
   const [message, setMessage] = useState(null);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  async function handleOnSubmit(e) {
+        e.preventDefault();
+    
+    const formData = {}
+    Array.from(e.currentTarget.elements).forEach(field => {
+      if (!field.name) return;
+      formData[field.name] = field.value
+    })
+    fetch('/api/mail', {
+      method: 'post',
+      body: JSON.stringify(formData)
+    })
+    console.log(formData)
+    
+  }
 
-    setStatus("Sending...");
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    let data = {
-      name,
-      email,
-      message,
-    };
+  //   setStatus("Sending...");
 
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+  //   let data = {
+  //     name,
+  //     email,
+  //     message,
+  //   };
 
-    const result = await res.status;
-    console.log("Here it is!");
-    console.log(result); // 200
-
-    if (result === 200) {
-      console.log("Sent!");
-      setStatus("Submit");
-
-      setSuccess(true);
-      setName("");
-      setEmail("");
-      setMessage("");
-      nameElement.current.value = "";
-      emailElement.current.value = "";
-      messageElement.current.value = "";
-    }
-  };
-
-  // async function getData(req, res) {
-  //   return new Promise((resolve, reject) => {
-  //     fetch("/api/contact", {
-  //       method: "POST",
-  //       headers: {
-  //         Accept: "application/json, text/plain, */*",
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(data),
-  //     })
-  //       .then((response) => {
-  //         console.log(response);
-  //         console.log("We have got here");
-
-  //         res.setHeader("Content-Type", "application/json");
-  //         res.setHeader("Cache-Control", "max-age=180000");
-  //         res.end(JSON.stringify(response));
-  //         return resolve();
-  //       })
-  //       .catch((error) => {
-  //         console.log("An error has occurred!");
-  //         res.json(error);
-  //         res.status(405).end();
-  //         return reject(); //in case something goes wrong in the catch block (as vijay) commented
-  //       });
+  //   const res = await fetch("/api/contact", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(data),
   //   });
-  // }
+
+  //   const result = await res.status;
+  //   console.log("Here it is!");
+  //   console.log(result); // 200
+
+  //   if (result === 200) {
+  //     console.log("Sent!");
+  //     setStatus("Submit");
+
+  //     setSuccess(true);
+  //     setName("");
+  //     setEmail("");
+  //     setMessage("");
+  //     nameElement.current.value = "";
+  //     emailElement.current.value = "";
+  //     messageElement.current.value = "";
+  //   }
+  // };
 
   return (
     <>
@@ -123,7 +111,7 @@ const Contact = () => {
 
               {/* Form */}
               <div>
-                <form>
+                <form method="post" onSubmit={handleOnSubmit}>
                   <label htmlFor="name" className="flex mb-2">
                     <div className="mr-2">
                       <svg
@@ -145,7 +133,7 @@ const Contact = () => {
                       <label htmlFor="name">Name:</label>
                     </div>
                   </label>
-                  {/* <label htmlFor="name">Name</label> */}
+
                   <input
                     type="text"
                     placeholder="John Smith"
@@ -180,7 +168,6 @@ const Contact = () => {
                     </div>
                   </label>
 
-                  {/* <label htmlFor="email">Email</label> */}
                   <input
                     type="email"
                     onChange={(e) => {
@@ -228,9 +215,9 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    onClick={(e) => {
-                      handleSubmit(e);
-                    }}
+                    // onClick={(e) => {
+                    //   handleSubmit(e);
+                    // }}
                     className="mt-4 btn-yellow-2"
                   >
                     {status}
@@ -238,94 +225,8 @@ const Contact = () => {
                 </form>
               </div>
 
-              {/* Old Form */}
-              {/* <form onSubmit={handleSubmit}>
-                <div className="flex mb-2">
-                  <div className="mr-2">
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                      />
-                    </svg>
-                  </div>
-                  <div className="flex-grow">
-                    <label htmlFor="name">NamJKJKJÛe:</label>
-                  </div>
-                </div>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="John Smith"
-                  ref={inputElement}
-                  className="mt-2 mb-8"
-                  required
-                />
-
-                <div className="flex mb-2">
-                  <div className="mr-2">
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                      />
-                    </svg>
-                  </div>
-                  <div className="flex-grow">
-                    <label htmlFor="email">Email:</label>
-                  </div>
-                </div>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="john@smith.com"
-                  className="mt-2 mb-8"
-                  required
-                />
-
-                <div className="flex mb-2">
-                  <div className="mr-2">
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                      />
-                    </svg>
-                  </div>
-                  <div className="flex-grow">
-                    <label htmlFor="message">Message:</label>
-                  </div>
-                </div>
-                <textarea id="message" required className="mt-2" />
-                <button type="submit" className="mt-4 btn-yellow-2">
-                  {status}
-                </button>
-              </form>
-            */}
+              
+              
             </div>
 
             <div className="w-full mt-16 md:w-1/3 md:mt-0">

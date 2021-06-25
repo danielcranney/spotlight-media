@@ -4,26 +4,31 @@ const mail = require('@sendgrid/mail');
 
 mail.setApiKey(process.env.SENDGRID_API_KEY)
 
-export default (req, res) => {
+export default async (req, res) => {
 
-  const body = JSON.parse(req.body);
-  console.log(body);
+  try {
+    const body = JSON.parse(req.body);
+    console.log(body);
 
-  const message = `
+    const message = `
   Name: ${body.name}\r\n
   Email: ${body.email}\r\n
   Message: ${body.message}
   `;
 
-  const data = {
-    to: 'info@wearespotlight.co.uk',
-    from: 'info@wearespotlight.co.uk',
-    subject: 'New web form message!',
-    text: message,
-    html: message.replace(/\r\n/g, '<br>')
-  }
+    const data = {
+      to: 'info@wearespotlight.co.uk',
+      from: 'info@wearespotlight.co.uk',
+      subject: 'New web form message!',
+      text: message,
+      html: message.replace(/\r\n/g, '<br>')
+    }
 
-  mail.send(data)
+    mail.send(data)
+  }
+  catch (error) {
+    return res.status(error.statusCode || 500).json({ error: error.message });
+  }
 
   res.status(200).json({ status: 'Ok' })
 }

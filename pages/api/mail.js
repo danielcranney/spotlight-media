@@ -11,10 +11,10 @@ export default async (req, res) => {
     console.log(body);
 
     const message = `
-  Name: ${body.name}\r\n
-  Email: ${body.email}\r\n
-  Message: ${body.message}
-  `;
+    Name: ${body.name}\r\n
+    Email: ${body.email}\r\n
+    Message: ${body.message}
+    `;
 
     const data = {
       to: 'info@wearespotlight.co.uk',
@@ -24,7 +24,7 @@ export default async (req, res) => {
       html: message.replace(/\r\n/g, '<br>')
     }
 
-    mail.send(data)
+    await mail.send(data)
   }
   catch (error) {
     return res.status(error.statusCode || 500).json({ error: error.message });

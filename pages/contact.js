@@ -9,12 +9,9 @@ const Contact = () => {
   const [status, setStatus] = useState("Submit");
   const [success, setSuccess] = useState(null);
 
-  const [name, setName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [message, setMessage] = useState(null);
-
   async function handleOnSubmit(e) {
-        e.preventDefault();
+    
+    e.preventDefault();
     
     const formData = {}
     Array.from(e.currentTarget.elements).forEach(field => {
@@ -30,42 +27,7 @@ const Contact = () => {
     
   }
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   setStatus("Sending...");
-
-  //   let data = {
-  //     name,
-  //     email,
-  //     message,
-  //   };
-
-  //   const res = await fetch("/api/contact", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(data),
-  //   });
-
-  //   const result = await res.status;
-  //   console.log("Here it is!");
-  //   console.log(result); // 200
-
-  //   if (result === 200) {
-  //     console.log("Sent!");
-  //     setStatus("Submit");
-
-  //     setSuccess(true);
-  //     setName("");
-  //     setEmail("");
-  //     setMessage("");
-  //     nameElement.current.value = "";
-  //     emailElement.current.value = "";
-  //     messageElement.current.value = "";
-  //   }
-  // };
+ 
 
   return (
     <>

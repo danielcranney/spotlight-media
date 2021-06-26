@@ -13,11 +13,11 @@ const Header = () => {
     <>
       <nav className={"flex flex-wrap items-center justify-between z-20 fixed w-full bg-black" +
               (navbarOpen ? " border-b-2 border-gray-700" : " border-b-0")}>
-        <div className="container mx-auto flex flex-wrap items-center justify-between my-6">
-          <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+        <div className="container flex flex-wrap items-center justify-between mx-auto my-6">
+          <div className="relative flex justify-between w-full lg:w-auto lg:static lg:block lg:justify-start">
 
             {/* Logo */}
-            <div className="object-scale-down flex-shrink-0 w-40 mr-auto z-20 motion-safe:animate-fadeSlideDown">
+            <div className="z-20 flex-shrink-0 object-scale-down w-40 mr-auto motion-safe:animate-fadeSlideDown">
               <Link href="/">
                 <a>
                   <Image
@@ -29,7 +29,7 @@ const Header = () => {
             </div>
 
             <button
-              className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+              className="block px-3 py-1 text-xl leading-none text-white bg-transparent border border-transparent border-solid rounded outline-none cursor-pointer lg:hidden focus:outline-none"
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
@@ -43,33 +43,33 @@ const Header = () => {
             }
             id="navbar"
           >
-            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-              <li className="nav-item lg:mx-4 mx-0">
+            <ul className="flex flex-col list-none lg:flex-row lg:ml-auto">
+              <li className="mx-0 nav-item lg:mx-4">
                 <Link href="/">
                   <a className="v-nav">Home</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mx-4 mx-0">
+              <li className="mx-0 nav-item lg:mx-4">
                 <Link href="/who-we-are">
                   <a className="v-nav">Who We Are</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mx-4 mx-0">
+              <li className="mx-0 nav-item lg:mx-4">
                 <Link href="/what-we-do">
                   <a className="v-nav">What We Do</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mx-4 mx-0">
+              <li className="mx-0 nav-item lg:mx-4">
                 <Link href="/clients">
                   <a className="v-nav">Clients</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mx-4 mx-0">
+              <li className="mx-0 nav-item lg:mx-4">
                 <Link href="/blog">
                   <a className="v-nav">Blog</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mx-4 mx-0">
+              <li className="mx-0 nav-item lg:mx-4">
                 <Link href="/contact">
                   <a className="v-nav">Contact</a>
                 </Link>
@@ -79,58 +79,6 @@ const Header = () => {
         </div>
       </nav>
     </>
- 
-    // <nav className="z-20 absolute w-full bg-black">
-
-    //   <div className="flex container mx-auto h-24 items-center">
-        
-        // {/* Logo */}
-        // <div className="object-scale-down flex-shrink-0 w-40 mr-auto z-20 motion-safe:animate-fadeSlideDown">
-        //   <Image
-        //   src="/logo.svg"
-        //   width={1550}
-        //   height={421} />
-        // </div>
-
-    //     {/* Navigation */}
-    //     <nav className="
-    //     flex items-center
-    //     transition-colors duration-500 z-20 delay-1000 motion-safe:animate-fadeSlideDown">
-    //         <div className="mx-4">
-    //           <Link href="/">
-    //             <a className="v-nav">Home</a>
-    //           </Link>
-    //         </div>
-    //         <div className="mx-4">
-              // <Link href="/who-we-are">
-              //   <a className="v-nav">Who We Are</a>
-              // </Link>
-    //         </div>
-    //         <div className="mx-4">
-              // <Link href="/what-we-do">
-              //   <a className="v-nav">What We Do</a>
-              // </Link>
-    //         </div>
-    //         <div className="mx-4">
-              // <Link href="/clients">
-              //   <a className="v-nav">Clients</a>
-              // </Link>
-    //         </div>
-    //         <div className="mx-4">
-              // <Link href="/blog">
-              //   <a className="v-nav">Blog</a>
-              // </Link>
-    //         </div>
-            // <div className="mx-4">
-    //           <Link href="/contact">
-    //             <a className="v-nav">Contact</a>
-    //           </Link>
-    //         </div>
-    //     </nav>
-
-    //   </div>
-
-    // </nav>
 
     )
 }

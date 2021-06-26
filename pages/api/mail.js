@@ -8,7 +8,7 @@ export default async (req, res) => {
 
   try {
     const body = JSON.parse(req.body);
-    console.log(body);
+    // console.log(body);
 
     const message = `
     Name: ${body.name}\r\n
@@ -19,7 +19,7 @@ export default async (req, res) => {
     const data = {
       to: 'info@wearespotlight.co.uk',
       from: 'info@wearespotlight.co.uk',
-      subject: 'New web form message!',
+      subject: 'Spotlight has received an email.',
       text: message,
       html: message.replace(/\r\n/g, '<br>')
     }

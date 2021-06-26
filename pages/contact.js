@@ -12,23 +12,35 @@ const Contact = () => {
   async function handleOnSubmit(e) {
     
     e.preventDefault();
+
+    setStatus("Sending...")
     
     const formData = {}
     Array.from(e.currentTarget.elements).forEach(field => {
       if (!field.name) return;
       formData[field.name] = field.value
     })
-    await fetch('/api/mail', {
+    const response = await fetch('/api/mail', {
       method: 'post',
       body: JSON.stringify(formData)
     })
-    console.log('Testing build');
-    console.log(formData)
-    
+
+    const data = await response.json();
+    if (response.status === 200) {
+      setSuccess(true);
+      setStatus("Send")
+
+      nameElement.current.value = "";
+      emailElement.current.value = "";
+      messageElement.current.value = "";
+      
+    } else {
+      throw Error(data.message)
+    };
+
+  return data;
   }
-
- 
-
+  
   return (
     <>
       <Head>

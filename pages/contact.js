@@ -21,7 +21,7 @@ const Contact = () => {
       method: "post",
       body: JSON.stringify(formData),
     });
-    console.log("Testing build");
+    console.log("Testing form build");
     console.log(formData);
   }
 

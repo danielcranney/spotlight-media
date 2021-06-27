@@ -5,5 +5,5 @@ This is the source code for my company website. We specialise in videography, bu
 ## Build Information
 
 * Core site configured with NextJS with React, with Tailwind for styling.
-* Contact form built using Express and Nodemailer
+* Contact form built using NodeJS and Nodemailer
 * Blog built using MDX-enhanced and graymatter.

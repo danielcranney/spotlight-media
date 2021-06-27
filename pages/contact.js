@@ -102,9 +102,6 @@ const Contact = () => {
                     placeholder="John Smith"
                     ref={nameElement}
                     className="mt-2 mb-8"
-                    // onChange={(e) => {
-                    //   setName(e.target.value);
-                    // }}
                     required
                     name="name"
                   />
@@ -133,9 +130,6 @@ const Contact = () => {
 
                   <input
                     type="email"
-                    // onChange={(e) => {
-                    //   setEmail(e.target.value);
-                    // }}
                     name="email"
                     placeholder="john@smith.com"
                     ref={emailElement}
@@ -167,9 +161,6 @@ const Contact = () => {
 
                   <textarea
                     type="text"
-                    // onChange={(e) => {
-                    //   setMessage(e.target.value);
-                    // }}
                     name="message"
                     className="mt-2 h-36"
                     ref={messageElement}
@@ -178,9 +169,7 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    // onClick={(e) => {
-                    //   handleSubmit(e);
-                    // }}
+
                     className="mt-4 btn-yellow-2"
                   >
                     {status}

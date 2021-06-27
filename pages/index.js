@@ -46,7 +46,7 @@ const Home = () => {
 
           <div className="flex mt-8 motion-safe:animate-fadeSlideUp">
             <Link href="/contact">
-              <a className="mr-4 btn-yellow">Contact us</a>
+              <a className="mr-4 btn-yellow">Hire us</a>
             </Link>
 
             <Link href="/who-we-are">

@@ -6,41 +6,29 @@ const Contact = () => {
   const emailElement = useRef();
   const messageElement = useRef();
 
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [message, setMessage] = useState(null);
+
   const [status, setStatus] = useState("Submit");
   const [success, setSuccess] = useState(null);
 
   async function handleOnSubmit(e) {
-    
     e.preventDefault();
 
-    setStatus("Sending...")
-    
-    const formData = {}
-    Array.from(e.currentTarget.elements).forEach(field => {
+    const formData = {};
+    Array.from(e.currentTarget.elements).forEach((field) => {
       if (!field.name) return;
-      formData[field.name] = field.value
-    })
-    const response = await fetch('/api/mail', {
-      method: 'post',
-      body: JSON.stringify(formData)
-    })
-
-    const data = await response.json();
-    if (response.status === 200) {
-      setSuccess(true);
-      setStatus("Send")
-
-      nameElement.current.value = "";
-      emailElement.current.value = "";
-      messageElement.current.value = "";
-      
-    } else {
-      throw Error(data.message)
-    };
-
-  return data;
+      formData[field.name] = field.value;
+    });
+    await fetch("/api/mail", {
+      method: "post",
+      body: JSON.stringify(formData),
+    });
+    console.log("Testing build");
+    console.log(formData);
   }
-  
+
   return (
     <>
       <Head>
@@ -181,18 +169,13 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    // onClick={(e) => {
-                    //   handleSubmit(e);
-                    // }}
+
                     className="mt-4 btn-yellow-2"
                   >
                     {status}
                   </button>
                 </form>
               </div>
-
-              
-              
             </div>
 
             <div className="w-full mt-16 md:w-1/3 md:mt-0">

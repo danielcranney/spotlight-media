@@ -6,28 +6,28 @@ const Contact = () => {
   const emailElement = useRef();
   const messageElement = useRef();
 
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [message, setMessage] = useState(null);
+
   const [status, setStatus] = useState("Submit");
   const [success, setSuccess] = useState(null);
 
   async function handleOnSubmit(e) {
-    
     e.preventDefault();
-    
-    const formData = {}
-    Array.from(e.currentTarget.elements).forEach(field => {
-      if (!field.name) return;
-      formData[field.name] = field.value
-    })
-    await fetch('/api/mail', {
-      method: 'post',
-      body: JSON.stringify(formData)
-    })
-    console.log('Testing build');
-    console.log(formData)
-    
-  }
 
- 
+    const formData = {};
+    Array.from(e.currentTarget.elements).forEach((field) => {
+      if (!field.name) return;
+      formData[field.name] = field.value;
+    });
+    await fetch("/api/mail", {
+      method: "post",
+      body: JSON.stringify(formData),
+    });
+    console.log("Testing build");
+    console.log(formData);
+  }
 
   return (
     <>
@@ -102,9 +102,9 @@ const Contact = () => {
                     placeholder="John Smith"
                     ref={nameElement}
                     className="mt-2 mb-8"
-                    onChange={(e) => {
-                      setName(e.target.value);
-                    }}
+                    // onChange={(e) => {
+                    //   setName(e.target.value);
+                    // }}
                     required
                     name="name"
                   />
@@ -133,9 +133,9 @@ const Contact = () => {
 
                   <input
                     type="email"
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                    }}
+                    // onChange={(e) => {
+                    //   setEmail(e.target.value);
+                    // }}
                     name="email"
                     placeholder="john@smith.com"
                     ref={emailElement}
@@ -167,9 +167,9 @@ const Contact = () => {
 
                   <textarea
                     type="text"
-                    onChange={(e) => {
-                      setMessage(e.target.value);
-                    }}
+                    // onChange={(e) => {
+                    //   setMessage(e.target.value);
+                    // }}
                     name="message"
                     className="mt-2 h-36"
                     ref={messageElement}
@@ -187,9 +187,6 @@ const Contact = () => {
                   </button>
                 </form>
               </div>
-
-              
-              
             </div>
 
             <div className="w-full mt-16 md:w-1/3 md:mt-0">

@@ -6,10 +6,6 @@ const Contact = () => {
   const emailElement = useRef();
   const messageElement = useRef();
 
-  const [name, setName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [message, setMessage] = useState(null);
-
   const [status, setStatus] = useState("Submit");
   const [success, setSuccess] = useState(null);
 
@@ -167,11 +163,7 @@ const Contact = () => {
                     required
                   />
 
-                  <button
-                    type="submit"
-
-                    className="mt-4 btn-yellow-2"
-                  >
+                  <button type="submit" className="mt-4 btn-yellow-2">
                     {status}
                   </button>
                 </form>

@@ -21,11 +21,8 @@ const Blog = ({ posts }) => {
 
       {/* Full Screen Header */}
       <div className="relative z-0 w-full pt-24 text-white bg-cover bg-home-header">
-        {/* Overlay */}
-        <div className="absolute z-0 w-full bg-black opacity-50 h-36 md:h-60"></div>
-
         {/* Hero Text Wrapper */}
-        <div className="z-20 flex flex-col items-start justify-center h-36 md:h-60">
+        <div className="z-20 flex flex-col items-start justify-center py-12">
           <div className="container z-20 mx-auto motion-safe:animate-fadeSlideUp">
             <h6 className="z-20 font-normal tracking-wider text-left text-gray-500 uppercase">
               What We're up to

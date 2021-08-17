@@ -31,14 +31,14 @@ const Header = () => {
             {/* Horizontal Menu */}
             <ul className="z-30 flex flex-col items-start">
               <li className="z-30 inline-flex flex-shrink w-full mb-0 leading-8 text-gray-600 list-none focus:outline-none group">
-                <Link href="/index">
+                <Link href="/">
                   <a
-                    className={`header_link h-full w-full py-2 text-xl`}
+                    className={`header_link h-full w-full py-2 text-lg`}
                     onClick={() => {
                       setNavbarOpen(false);
                     }}
                   >
-                    <span className="h-full py-2 transition-all duration-300 ease-in-out border-b-2 border-transparent group-hover:border-yellow group-hover:text-white opacity-70 group-hover:opacity-100">
+                    <span className="h-full py-2 tracking-normal transition-all duration-300 ease-in-out border-b-2 border-transparent group-hover:border-yellow group-hover:text-white opacity-70 group-hover:opacity-100">
                       Home
                     </span>
                   </a>
@@ -47,7 +47,7 @@ const Header = () => {
               <li className="z-30 inline-flex flex-shrink w-full mb-0 leading-8 text-gray-600 list-none focus:outline-none group">
                 <Link href="/who-we-are">
                   <a
-                    className={`header_link h-full w-full py-2 text-xl`}
+                    className={`header_link h-full w-full py-2 text-lg`}
                     onClick={() => {
                       setNavbarOpen(false);
                     }}
@@ -61,7 +61,7 @@ const Header = () => {
               <li className="z-30 inline-flex flex-shrink w-full mb-0 leading-8 text-gray-600 list-none focus:outline-none group">
                 <Link href="/what-we-do">
                   <a
-                    className={`header_link h-full w-full py-2 text-xl`}
+                    className={`header_link h-full w-full py-2 text-lg`}
                     onClick={() => {
                       setNavbarOpen(false);
                     }}
@@ -75,7 +75,7 @@ const Header = () => {
               <li className="z-30 inline-flex flex-shrink w-full mb-0 leading-8 text-gray-600 list-none focus:outline-none group">
                 <Link href="/clients">
                   <a
-                    className={`header_link h-full w-full py-2 text-xl`}
+                    className={`header_link h-full w-full py-2 text-lg`}
                     onClick={() => {
                       setNavbarOpen(false);
                     }}
@@ -89,7 +89,7 @@ const Header = () => {
               <li className="z-30 inline-flex flex-shrink w-full mb-0 leading-8 text-gray-600 list-none focus:outline-none group">
                 <Link href="/blog">
                   <a
-                    className={`header_link h-full w-full py-2 text-xl`}
+                    className={`header_link h-full w-full py-2 text-lg`}
                     onClick={() => {
                       setNavbarOpen(false);
                     }}
@@ -103,7 +103,7 @@ const Header = () => {
               <li className="z-30 inline-flex flex-shrink w-full mb-0 leading-8 text-gray-600 list-none focus:outline-none group">
                 <Link href="/contact">
                   <a
-                    className={`header_link h-full w-full py-2 text-xl`}
+                    className={`header_link h-full w-full py-2 text-lg`}
                     onClick={() => {
                       setNavbarOpen(false);
                     }}
@@ -144,19 +144,21 @@ const Header = () => {
                 <span
                   aria-hidden="true"
                   className={`block absolute h-0.5 w-5 bg-white transform transition duration-300 ease-in-out ${
-                    navbarOpen ? "rotate-45" : "-translate-y-1.5"
+                    navbarOpen ? "rotate-45 delay-200" : "-translate-y-1.5"
                   }`}
                 ></span>
                 <span
                   aria-hidden="true"
-                  className={`block absolute  h-0.5 w-5 bg-white transform transition duration-300 ease-in-out ${
-                    navbarOpen ? "opacity-0" : "opacity-100"
+                  className={`block absolute  h-0.5 bg-white transform transition-all duration-200 ease-in-out ${
+                    navbarOpen
+                      ? "w-0 -translate-x-1 opacity-50"
+                      : "w-5 delay-200 opacity-100"
                   }`}
                 ></span>
                 <span
                   aria-hidden="true"
                   className={`block absolute h-0.5 w-5 bg-white transform transition duration-300 ease-in-out ${
-                    navbarOpen ? "-rotate-45" : "translate-y-1.5"
+                    navbarOpen ? "-rotate-45 delay-200" : "translate-y-1.5"
                   }`}
                 ></span>
               </div>

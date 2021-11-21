@@ -86,7 +86,7 @@ const Header = () => {
                   </a>
                 </Link>
               </li>
-              <li className="z-30 inline-flex flex-shrink w-full mb-0 leading-8 text-gray-600 list-none focus:outline-none group">
+              {/* <li className="z-30 inline-flex flex-shrink w-full mb-0 leading-8 text-gray-600 list-none focus:outline-none group">
                 <Link href="/blog">
                   <a
                     className={`header_link h-full w-full py-2 text-lg`}
@@ -99,7 +99,7 @@ const Header = () => {
                     </span>
                   </a>
                 </Link>
-              </li>
+              </li> */}
               <li className="z-30 inline-flex flex-shrink w-full mb-0 leading-8 text-gray-600 list-none focus:outline-none group">
                 <Link href="/contact">
                   <a

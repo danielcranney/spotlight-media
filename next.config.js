@@ -10,7 +10,7 @@ module.exports = composePlugins(
   {
     images: {
       domains: ["www.nasa.gov"],
-    }
+    },
   }
 );
 
@@ -18,13 +18,13 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: '/',
-        destination: '/index',
+        source: "/",
+        destination: "/index",
         permanent: true,
       },
-    ]
+    ];
   },
-}
+};
 
 module.exports = {
   webpack: (config, { isServer }) => {

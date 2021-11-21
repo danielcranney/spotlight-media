@@ -149,7 +149,7 @@ const Header = () => {
                 ></span>
                 <span
                   aria-hidden="true"
-                  className={`block absolute  h-0.5 bg-white transform transition-all duration-200 ease-in-out ${
+                  className={`block absolute h-0.5 bg-white transform transition-all duration-200 ease-in-out ${
                     navbarOpen
                       ? "w-0 -translate-x-1 opacity-50"
                       : "w-5 delay-200 opacity-100"

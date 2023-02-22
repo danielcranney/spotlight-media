@@ -9,6 +9,7 @@ const Contact = () => {
   const [status, setStatus] = useState("Submit");
   const [success, setSuccess] = useState(null);
 
+  // Contact Form Function Send
   async function handleOnSubmit(e) {
     e.preventDefault();
 

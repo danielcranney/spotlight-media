@@ -221,7 +221,7 @@ const Contact = () => {
                     href={`tel:+447717131511`}
                     className="mb-4 text-gray-600 transition-colors duration-500 hover:text-black"
                   >
-                    07717 131 511
+                    07595 470860
                   </a>
                 </p>
               </div>

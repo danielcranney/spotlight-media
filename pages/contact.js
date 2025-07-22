@@ -77,8 +77,7 @@ const Contact = () => {
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                        xmlns="http://www.w3.org/2000/svg">
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -108,8 +107,7 @@ const Contact = () => {
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                        xmlns="http://www.w3.org/2000/svg">
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -139,8 +137,7 @@ const Contact = () => {
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                        xmlns="http://www.w3.org/2000/svg">
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -179,8 +176,7 @@ const Contact = () => {
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                    xmlns="http://www.w3.org/2000/svg">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -192,8 +188,7 @@ const Contact = () => {
                 <p className="mb-4 text-gray-600">
                   <a
                     href={`mailto:info@wearespotlight.co.uk`}
-                    className="mb-4 text-gray-600 transition-colors duration-500 hover:text-black"
-                  >
+                    className="mb-4 text-gray-600 transition-colors duration-500 hover:text-black">
                     info@wearespotlight.co.uk
                   </a>
                 </p>
@@ -206,8 +201,7 @@ const Contact = () => {
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                    xmlns="http://www.w3.org/2000/svg">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -219,14 +213,13 @@ const Contact = () => {
                 <p className="mb-4 text-gray-600">
                   <a
                     href={`tel:+447717131511`}
-                    className="mb-4 text-gray-600 transition-colors duration-500 hover:text-black"
-                  >
+                    className="mb-4 text-gray-600 transition-colors duration-500 hover:text-black">
                     07595 470860
                   </a>
                 </p>
               </div>
 
-              <div className="flex mb-4">
+              {/* <div className="flex mb-4">
                 <div className="mr-2 text-gray-600">
                   <svg
                     className="w-6 h-6"
@@ -249,13 +242,13 @@ const Contact = () => {
                     />
                   </svg>
                 </div>
-                {/* <div className="flex flex-col">
+                <div className="flex flex-col">
                   <p className="mb-2">104 Wrington Close,</p>
                   <p className="mb-2">Little Stoke,</p>
                   <p className="mb-2">Bristol</p>
                   <p className="mb-2">BS34 6ET</p>
-                </div> */}
-              </div>
+                </div>
+              </div> */}
             </div>
           </div>
         </div>

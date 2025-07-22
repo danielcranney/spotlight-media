@@ -249,12 +249,12 @@ const Contact = () => {
                     />
                   </svg>
                 </div>
-                <div className="flex flex-col">
+                {/* <div className="flex flex-col">
                   <p className="mb-2">104 Wrington Close,</p>
                   <p className="mb-2">Little Stoke,</p>
                   <p className="mb-2">Bristol</p>
                   <p className="mb-2">BS34 6ET</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

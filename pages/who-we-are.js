@@ -36,7 +36,7 @@ const WhoWeAre = () => {
 
           <div className="flex flex-col md:flex-row">
             {/* Dan Section */}
-            <div className="flex items-start w-full mb-6 md:w-1/2 md:mb-0">
+            {/* <div className="flex items-start w-full mb-6 md:w-1/2 md:mb-0">
               <div className="w-1/3 mr-4">
                 <Image
                   src="/headshot-1.png"
@@ -57,10 +57,10 @@ const WhoWeAre = () => {
                   Discovery and Sky.
                 </p>
               </div>
-            </div>
+            </div> */}
 
             {/* Rich Section */}
-            <div className="flex items-start w-full md:w-1/2">
+            {/* <div className="flex items-start w-full md:w-1/2">
               <div className="w-1/3 mr-4">
                 <Image
                   src="/headshot-2.png"
@@ -80,7 +80,7 @@ const WhoWeAre = () => {
                   years, across videography, web development and design.
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
